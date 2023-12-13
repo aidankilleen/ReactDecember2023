@@ -9,3 +9,4 @@ const AccordionPanel = ({ title, expanded, onExpanded, children }) => {
 }
 
 export default AccordionPanel;
+
