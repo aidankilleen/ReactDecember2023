@@ -12,7 +12,6 @@ function App() {
     {id:5, title:"Item 5", text:"Accordion Item 5", expanded:false }
   ];
 
-
   return (
     <div>
       <h1>Accordion Investigation</h1>
