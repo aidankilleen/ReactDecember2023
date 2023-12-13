@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Destructuring Investigation</h1>
+
+    <script>
+
+        console.log("ES 6 Features");
+
+        // don't use var any more
+        // var name = "Aidan";
+
+        // use let and const instead
+        let n = "Aidan";
+        const nn = "Aidan";
+
+        // nn = "Fred";  // can't assign to a const
+
+        console.log(nn);
+        let member = {
+            id: 1, 
+            name: "Alice", 
+            email: "alice@gmail.com", 
+            active: true,
+            address: {
+                line1: "16 Woodquay", 
+                line2: "Dry Bridge", 
+                town: "Glounthaune", 
+                county: "Cork", 
+                eircode: "T5512DS"
+            }
+        };
+
+        console.log(member.name);
+
+        // destructuring
+        // spread operator (...)
+        let { name, email, ...rest } = member;
+        console.log(name);
+        console.log(email);
+        console.log(rest);
+
+        // spread gives us an easy way to copy an object
+
+        let { ...copy } = member;
+        console.log(copy);
+
+        let {address} = member;
+        console.log(address);
+
+        // destructure nested object
+        let { address:{ county } } = member;
+        console.log(county);
+
+        // rename variable as destructuring if needed
+        let { name:memberName } = member;
+        console.log(memberName);
+
+        // Destructuring work on arrays too!
+
+        list = ["one", "two", "three", "four", "five"];
+
+
+        let [item1, item2, ...others] = list;
+
+        console.log(item1);
+        console.log(item2);
+        console.log(others);
+
+
+        function mySetState(initialValue) {
+
+            let v = initialValue;
+
+            let f = (updatedValue) => {
+                v = updatedValue;
+            }
+            return [v, f];
+        }
+
+
+        let [value, setValue] = mySetState(1);
+        console.log(value);
+        setValue(10);
+        console.log(value);
+
+
+        // copy the member object and change one piece
+        let memberCopy = {
+            ...member, 
+            name: "CHANGED"
+        };
+
+        console.log(memberCopy);
+
+
+        // access properties using .
+        // access properties using ["field name"]
+        console.log(member.name);
+        console.log(member["name"]);
+
+        let fieldName = "email";
+
+        console.log(member[fieldName]);
+
+        console.log(Object.keys(member));
+
+        let keys = Object.keys(member);
+
+        for (let key of keys) {
+            console.log(`${ key }:${ member[key] }`);
+        }
+
+        
+        // 
+        console.log("---------------------------");
+        keys.forEach(key => console.log(key));
+
+
+        let result = keys.map(key => {
+            return `<li>${key}</li>`;
+        });
+
+        let join = result.join("");
+
+        console.log(join);
+
+
+        let html = "<ul>" 
+                 + keys.map(key => `<li>${key}</li>`)
+                       .join("")
+                 + "</ul>";
+
+        console.log(html);
+
+
+        // templated string
+
+        let s = "a string";
+        let ss = 'a string';
+        let sss = `a string`;
+
+        let message = 'press the "red" button';
+        let surname = "O'Sullivan";
+
+    
+        message = `this creates a string`;
+
+        message = `Welcome ${ name }`;
+
+
+        console.log(message);
+
+        message = `templated strings
+        can span multiple
+        lines`;
+
+        console.log(message);
+
+        let a = 10;
+        let b = 20;
+
+        // you can put an expression into a templated string
+        message = `${ a } + ${ b } = ${ a + b }`;
+
+        console.log(message);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
