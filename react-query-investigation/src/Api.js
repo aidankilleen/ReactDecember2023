@@ -21,3 +21,19 @@ export const deleteUser = async(id) => {
     }
     return true;
 }
+
+export const addUser = async(user) => {
+    const response = await fetch(url, {
+        method: "POST", 
+        headers: {
+            "Content-Type": "application/json"
+        }, 
+        body: JSON.stringify(user)
+    });
+
+    if (!response.ok) {
+        throw new Error("Error in post requests");
+    }
+
+    return response.json();
+}
