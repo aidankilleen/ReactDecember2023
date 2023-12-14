@@ -1,4 +1,4 @@
-const UserTable = ({ users,onDelete }) => {
+const UserTable = ({ users,onDelete, onEdit }) => {
 
     return (
         <table>
@@ -14,7 +14,7 @@ const UserTable = ({ users,onDelete }) => {
         <tbody>
             
             { users.map(user => 
-                <tr>
+                <tr key={ user.id }>
                     <td>{ user.id }</td>
                     <td>{ user.name }</td>
                     <td>{ user.email }</td>
@@ -25,6 +25,12 @@ const UserTable = ({ users,onDelete }) => {
                                 () => onDelete(user.id) 
                             }>
                             Delete
+                        </button>
+                        <button 
+                            onClick={ 
+                                () => onEdit(user) 
+                            }>
+                            Edit
                         </button>
                     </td>
                 </tr>) }

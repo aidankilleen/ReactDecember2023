@@ -37,3 +37,17 @@ export const addUser = async(user) => {
 
     return response.json();
 }
+export const updateUser = async(user) => {
+    const response = await fetch(`${url}/${user.id}`, {
+        method: "PUT", 
+        headers: {
+            "Content-Type": "application/json"
+        }, 
+        body: JSON.stringify(user)
+    });
+
+    if (!response.ok) {
+        throw new Error("Error in post requests");
+    }
+    return response.json();
+}

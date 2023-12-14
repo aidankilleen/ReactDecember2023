@@ -1,18 +1,13 @@
 import { useState } from "react";
 import './UserDialog.css';
-const UserDialog = ({ show, onSave, onCancel }) => {
+const UserDialog = ({ show, user, setUser, onSave, onCancel }) => {
 
-    const [user, setUser] = useState({
-        id: 0, 
-        name: "", 
-        email: "", 
-        active: false
-    })
+    //const [user, setUser] = useState(userProp);
     return (
         <>
             { show && 
             <div className="dialog">
-                <h2>Add User</h2>
+                <h2>User Dialog</h2>
 
                 <input 
                     value={ user.name }
